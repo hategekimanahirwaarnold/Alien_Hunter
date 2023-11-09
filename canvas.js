@@ -58,7 +58,7 @@ addEventListener("mousemove", function(e) {
 // Classes
 
 let angle = 0;
-let friction = 0.999;
+let friction = 1;
 
 class Projectile {
     constructor (x, y, radius, color, velocity)
