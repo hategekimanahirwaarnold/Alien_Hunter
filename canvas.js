@@ -169,7 +169,7 @@ class Enemy {
         this.y += this.velocity.y;
     }
 }
-let enemyTime = 1300;
+let enemyTime = 1600;
 function sendEnemy() {
     setInterval(()=> {
         let radius = (30 - 5) * random() + 5;
