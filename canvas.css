@@ -1,0 +1,12 @@
+body {
+    margin: 0;
+    background: black;
+}
+
+#board {
+    background-color: black;
+}
+
+.characters {
+    display: none;
+}
