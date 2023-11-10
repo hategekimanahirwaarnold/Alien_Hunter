@@ -172,7 +172,7 @@ class Enemy {
 let enemyTime = 1700;
 function sendEnemy() {
     setInterval(()=> {
-        let radius = (30 - 5) * random() + 5;
+        let radius = (35 - 8) * random() + 8;
         let x , y;
         let enemySpeed = 1.5;
         if (random() < 0.5) {
@@ -353,7 +353,7 @@ function animate() {
             let distance = Math.hypot(projectile.x - enemy.x, projectile.y - enemy.y);
             
             // when bullet touch enemy
-            if (distance - enemy.radius - projectile.radius < 1) {
+            if (distance - enemy.radius - projectile.radius < 0) {
     
                 // create new particles
                 let power = Math.random() * 7;
@@ -364,13 +364,13 @@ function animate() {
                         Math.random() * 2 + 0.1, 
                         enemy.color, 
                         {
-                            x: (random() - 0.5) * power ,
-                            y: (random() - 0.5) * power
+                            x: (random() - 0.5) * power + 1,
+                            y: (random() - 0.5) * power + 1
                         }
                     ))
                 }
                 
-                if (enemy.radius - 10  > 8) {
+                if (enemy.radius > 25) {
                     //increase score
                     score_val += 100;
                     score.innerHTML = score_val;
@@ -378,21 +378,16 @@ function animate() {
                         
                         radius: enemy.radius - 10
                     })
-                    enemy.radius -= 10;
                     setTimeout(() => {
-                        if (distance - enemy.radius - projectile.radius < 1) {
-                            enemies.splice(j, 1);
-                        }
+                        projectiles.splice(i, 1);
                     }, 0);
                 } else {
                     //increase score
                     score_val += 250;
                     score.innerHTML = score_val;
                     setTimeout(() => {
-                        if (distance - enemy.radius - projectile.radius < 1) {
-                            enemies.splice(j, 1);
-                            projectiles.splice(i, 1);
-                        }
+                        enemies.splice(j, 1);
+                        projectiles.splice(i, 1);
                     }, 0);
                 }
             }
@@ -419,6 +414,5 @@ start.addEventListener('click', () => {
     animate();
     board.style.display = 'none';
 })
-
 // End of the code
 /////////////////////////////////////////////////
