@@ -169,12 +169,12 @@ class Enemy {
         this.y += this.velocity.y;
     }
 }
-let enemyTime = 1600;
+let enemyTime = 1700;
 function sendEnemy() {
     setInterval(()=> {
         let radius = (30 - 5) * random() + 5;
         let x , y;
-        let enemySpeed = 2.5;
+        let enemySpeed = 1.5;
         if (random() < 0.5) {
             x = random() < 0.5 ? 0 - radius : canvas.width + radius;
             y = random() * canvas.height;
@@ -268,7 +268,7 @@ function init() {
 //end of galactic effects
 ////////////////////////////////////////////////////////////////////////////////////
 // create new bullet when a person click;
-let bulletSpeed = 8;
+let bulletSpeed = 12;
 let bulletSize = 4;
 let bulletColor = "#737171";
 
@@ -414,9 +414,9 @@ function animate() {
 // init();
 start.addEventListener('click', () => {
     init();
+    sendEnemy();
     initGalaxy();
     animate();
-    sendEnemy();
     board.style.display = 'none';
 })
 
